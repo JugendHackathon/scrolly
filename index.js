@@ -39,7 +39,7 @@ tollerbutton.addEventListener("click", () => {
     tollerbutton.style.visibility = "hidden";
     pause.style.display = "none";
     video.style.display = "block";
-    weiterbutton.style.display = "block";
+    weiterbutton.style.visibility = "visible";
 
     startSequence();
 
@@ -47,7 +47,7 @@ tollerbutton.addEventListener("click", () => {
 
 function startPause() {
     pausetime = 10;
-    weiterbutton.style.display = "none";
+    weiterbutton.style.visibility = "hidden";
 
     let intervalId = setInterval(() => {
         pausetime = pausetime - 1;
