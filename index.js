@@ -6,8 +6,6 @@ let time = 15;
 let pausetime = 10;
 let pause = document.querySelector("#pause");
 
-
-tollerbutton.style.display = "none";
 startSequence();
 
 function startSequence() {
@@ -17,8 +15,8 @@ function startSequence() {
         if (time === 0) {
             // Zeit abgelaufen, Pause machen!
             video.style.display = "none"; 
-            pause.style.display = "block";
-            tollerbutton.style.display = "none";
+            pause.style.display = "flex";
+            tollerbutton.style.visibility = "hidden";
             clearInterval(intervalId);
             startPause();
         }
@@ -28,20 +26,20 @@ function startSequence() {
 
 tollerbutton.addEventListener("click", () => {
     time = 15;
-    tollerbutton.style.display = "none";
+    tollerbutton.style.visibility = "hidden";
     pause.style.display = "none";
     video.style.display = "block";
     startSequence();
 });
 
 function startPause() {
-    pausetime = 10;
+    pausetime = 3;
 
     let intervalId = setInterval(() => {
         pausetime = pausetime - 1;
         timer.textContent = pausetime;
         if (pausetime === 0) {
-            tollerbutton.style.display = "block";
+            tollerbutton.style.visibility = "visible";
             clearInterval(intervalId);
         }
     }, currentDelay);
