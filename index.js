@@ -6,6 +6,16 @@ let time = 15;
 let pausetime = 10;
 let pause = document.querySelector("#pause");
 
+let currentIndex = 0;
+let weiterbutton = document.querySelector("#weiterbutton");
+const videoList = [
+    "https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7630521780754500878?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7561827045118872853?music_info=1&description=1&autoplay=1&loop=1"
+];
+
+video.src = videoList[currentIndex]
+
 startSequence();
 
 function startSequence() {
@@ -29,11 +39,15 @@ tollerbutton.addEventListener("click", () => {
     tollerbutton.style.visibility = "hidden";
     pause.style.display = "none";
     video.style.display = "block";
+    weiterbutton.style.display = "block";
+
     startSequence();
+
 });
 
 function startPause() {
-    pausetime = 3;
+    pausetime = 10;
+    weiterbutton.style.display = "none";
 
     let intervalId = setInterval(() => {
         pausetime = pausetime - 1;
@@ -45,3 +59,11 @@ function startPause() {
     }, currentDelay);
 
 }
+
+weiterbutton.addEventListener("click", () => {
+    currentIndex = currentIndex + 1
+    if (currentIndex >= 3) {
+        currentIndex = 0
+    }
+    video.src = videoList[currentIndex];
+});
