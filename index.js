@@ -13,14 +13,11 @@ const videoList = [
     "https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7630521780754500878?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7561827045118872853?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7696650054328798496?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/7696835328304286982?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7696835328304286982?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7654741412855942430?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7432281481000635680?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7687289859236449549?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/7538987875631697182?music_info=1&description=1&autoplay=1&loop=1",
 ];
 const videoList2 = [
     "https://www.tiktok.com/player/v1/7459775418585976087?music_info=1&description=1&autoplay=1&loop=1",
@@ -37,6 +34,14 @@ const videoList2 = [
 ];
 
 let currentList = videoList;
+
+for (let i = videoList.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+
+    [videoList[i], videoList[j]] = [videoList[j], videoList[i]];
+}
+
+console.log(videoList);
 
 video.src = videoList[currentIndex]
 
