@@ -25,8 +25,6 @@ const videoList2 = [
     "https://www.tiktok.com/player/v1/7543204960499027222?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7672680494772899104?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7534724405360889110?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/7620513927780224288?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/7608272162201275670?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7627197865399536929?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7525801962856516895?music_info=1&description=1&autoplay=1&loop=1",
 
