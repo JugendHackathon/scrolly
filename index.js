@@ -12,9 +12,9 @@ function startSequence() {
     let intervalId = setInterval(() => {
         time = time - 1;
         timer.textContent = time;
-        if (time <= 10){
+        if (time <= 10) {
             smiley.src = "smiley2.jpg";
-        } if (time <= 5){
+        } if (time <= 5) {
             smiley.src = "smiley3.jpg";
         }
         if (time === 0) {
@@ -34,16 +34,26 @@ tollerbutton.addEventListener("click", () => {
     video.style.display = "none";
     video.style.display = "block";
     startSequence();
+    video.contentWindow.postMessage({
+        type: "play",
+        "x-tiktok-player": true
+    }, "*");
 });
 function pause() {
     pausetime = 10;
 
+
+    video.contentWindow.postMessage({
+        type: "pause",
+        "x-tiktok-player": true
+    }, "*");
+
     let intervalId = setInterval(() => {
         pausetime = pausetime - 1;
         timer.textContent = pausetime;
-        if (pausetime <= 10){
+        if (pausetime <= 10) {
             smiley.src = "smiley2.jpg";
-        } if (pausetime <= 5){
+        } if (pausetime <= 5) {
             smiley.src = "smiley1.jpg";
         }
         if (pausetime === 0) {
