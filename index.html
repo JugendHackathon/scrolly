@@ -2,6 +2,9 @@
 <head>
     <title>Hackathon 2026</title>
 
+    <!-- Das hier brauchen wir damit Umlaute korrekt dargestellt werden -->
+    <meta charset="UTF-8">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
@@ -28,13 +31,13 @@
         }
 
         #timer { 
-            
             color: #f9e103;
-
             font-size: 7dvh;
             font-family: "Sniglet", system-ui;
             font-weight: 400;
             font-style: normal;
+            width: 1.5em;
+            text-align: right;
         }
 
         #rahmen {
@@ -68,13 +71,39 @@
             min-height: 85dvh;
             width: 100%;
             display: none;  /* Wird gezeigt wenn der Timer abgelaufen ist */
+
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
         }
 
         #pause img {
-            width: 88dvh;
+            width: 50dvw;
             display:block;
             margin-left:auto;
             margin-right:auto;
+        }
+
+        #tollerbutton {
+            background-color: black;
+            border: 3px solid #f9e103;
+            border-radius: 1dvh;
+            color: #f9e103;
+            font-size: 7dvh;
+            font-family: "Sniglet", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #weiterbutton {
+            background-color: black;
+            color: #f9e103;
+            border: 1px solid #f9e103;
+            border-radius: 1dvh;
+            font-size: 2dvh;
+            font-family: "Sniglet", system-ui;
+            font-weight: 400;
+            font-style: normal;
         }
 
     </style>
@@ -83,16 +112,14 @@
     <div id="rahmen">
         <img id="smiley" src="smiley1.jpg"></img>
         <img id="logo" src="logo.jpg"></img>
-        <div id="timer">01:30</div>
-
-        <div id="pausetimer">10</div>
-        <button id="tollerbutton"><h1>button</h1></button><br>
-        <button id="weiterbutton">weiter</button>
+         <button id="weiterbutton">Nächstes Video</button>
+        <div id="timer"></div>
     </div>
     
     <div id="pause">
-        <img src="pause.jpg"></img>   
+        <img src="pause.jpg"></img>
+        <button id="tollerbutton">Zurück zu TikTok</button>   
     </div>
 
-    <iframe id="video" src="https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1&play_button=0" allowfullscreen></iframe> -->
+    <iframe id="video" src="https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1&play_button=0" allowfullscreen></iframe>
 </body>
