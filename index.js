@@ -23,6 +23,14 @@ const videoList = [
     "https://www.tiktok.com/player/v1/7538987875631697182?music_info=1&description=1&autoplay=1&loop=1",
 ];
 
+for (let i = videoList.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+
+    [videoList[i], videoList[j]] = [videoList[j], videoList[i]];
+}
+
+console.log(videoList);
+
 video.src = videoList[currentIndex]
 
 startSequence();
