@@ -3,7 +3,7 @@ let smiley = document.querySelector("#smiley");
 let video = document.querySelector("#video");
 let currentDelay = 1000;
 let timer = document.querySelector("#timer");
-let time = 15;
+let time = 150;
 let pausetime = 10;
 let pause = document.querySelector("#pause");
 
@@ -13,9 +13,7 @@ const videoList = [
     "https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7630521780754500878?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7561827045118872853?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/6718335390845095173?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7696650054328798496?music_info=1&description=1&autoplay=1&loop=1",
-    "https://www.tiktok.com/player/v1/7696835328304286982?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7696835328304286982?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7654741412855942430?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7432281481000635680?music_info=1&description=1&autoplay=1&loop=1",
