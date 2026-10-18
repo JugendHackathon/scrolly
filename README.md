@@ -1,1 +1,2 @@
-# Hackathon 2026
+![](logo.jpg)
+![](qrcode.png)
