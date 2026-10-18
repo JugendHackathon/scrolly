@@ -6,7 +6,7 @@ let timer = document.querySelector("#timer");
 let time = 15;
 let pausetime = 10;
 let pause = document.querySelector("#pause");
-
+let Lernvideosbutton = document.querySelector("#Lernvideosbutton");
 let currentIndex = 0;
 let weiterbutton = document.querySelector("#weiterbutton");
 const videoList = [
@@ -22,6 +22,21 @@ const videoList = [
     "https://www.tiktok.com/player/v1/7687289859236449549?music_info=1&description=1&autoplay=1&loop=1",
     "https://www.tiktok.com/player/v1/7538987875631697182?music_info=1&description=1&autoplay=1&loop=1",
 ];
+const videoList2 = [
+    "https://www.tiktok.com/player/v1/7459775418585976087?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7574899546866683138?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7543204960499027222?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7672680494772899104?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7534724405360889110?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7620513927780224288?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7608272162201275670?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7627197865399536929?music_info=1&description=1&autoplay=1&loop=1",
+    "https://www.tiktok.com/player/v1/7525801962856516895?music_info=1&description=1&autoplay=1&loop=1",
+
+  
+];
+
+let currentList = videoList;
 
 video.src = videoList[currentIndex]
 
@@ -41,25 +56,34 @@ function startSequence() {
             video.style.display = "none";
             pause.style.display = "flex";
             tollerbutton.style.visibility = "hidden";
+            Lernvideosbutton.style.visibility = "hidden";
             clearInterval(intervalId);
             startPause();
         }
     }, currentDelay);
 }
 
-
-tollerbutton.addEventListener("click", () => {
+function playVideoList(chosenList) {
+    currentList = chosenList;
+    video.src = currentList[currentIndex]; 
     time = 15;
     tollerbutton.style.visibility = "hidden";
+    Lernvideosbutton.style.visibility = "hidden";
     pause.style.display = "none";
     video.style.display = "block";
     weiterbutton.style.visibility = "visible";
 
     startSequence();
+    
     video.contentWindow.postMessage({
         type: "play",
         "x-tiktok-player": true
     }, "*");
+}
+
+
+tollerbutton.addEventListener("click", () => {
+    playVideoList(videoList);
 });
 
 function startPause() {
@@ -82,6 +106,7 @@ function startPause() {
         }
         if (pausetime === 0) {
             tollerbutton.style.visibility = "visible";
+            Lernvideosbutton.style.visibility = "visible";
             clearInterval(intervalId);
         }
     }, currentDelay);
@@ -90,8 +115,12 @@ function startPause() {
 
 weiterbutton.addEventListener("click", () => {
     currentIndex = currentIndex + 1
-    if (currentIndex >= videoList.length) {
+    if (currentIndex >= currentList.length) {
         currentIndex = 0
     }
-    video.src = videoList[currentIndex];
+    video.src = currentList[currentIndex];
+});
+
+Lernvideosbutton.addEventListener("click", () => {
+playVideoList(videoList2);
 });
