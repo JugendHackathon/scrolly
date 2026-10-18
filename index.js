@@ -3,7 +3,7 @@ let smiley = document.querySelector("#smiley");
 let video = document.querySelector("#video");
 let currentDelay = 1000;
 let timer = document.querySelector("#timer");
-let time = 150;
+let time = 15;
 let pausetime = 10;
 let pause = document.querySelector("#pause");
 
