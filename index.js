@@ -30,9 +30,14 @@ function startSequence() {
     let intervalId = setInterval(() => {
         time = time - 1;
         timer.textContent = time;
+        if (time <= 10) {
+            smiley.src = "smiley2.jpg";
+        } if (time <= 5) {
+            smiley.src = "smiley3.jpg";
+        }
         if (time === 0) {
             // Zeit abgelaufen, Pause machen!
-            video.style.display = "none"; 
+            video.style.display = "none";
             pause.style.display = "flex";
             tollerbutton.style.visibility = "hidden";
             clearInterval(intervalId);
@@ -50,16 +55,30 @@ tollerbutton.addEventListener("click", () => {
     weiterbutton.style.visibility = "visible";
 
     startSequence();
-
+    video.contentWindow.postMessage({
+        type: "play",
+        "x-tiktok-player": true
+    }, "*");
 });
 
 function startPause() {
     pausetime = 10;
     weiterbutton.style.visibility = "hidden";
 
+
+    video.contentWindow.postMessage({
+        type: "pause",
+        "x-tiktok-player": true
+    }, "*");
+
     let intervalId = setInterval(() => {
         pausetime = pausetime - 1;
         timer.textContent = pausetime;
+        if (pausetime <= 10) {
+            smiley.src = "smiley2.jpg";
+        } if (pausetime <= 5) {
+            smiley.src = "smiley1.jpg";
+        }
         if (pausetime === 0) {
             tollerbutton.style.visibility = "visible";
             clearInterval(intervalId);
